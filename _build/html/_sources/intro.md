@@ -16,7 +16,7 @@ My expertise includes proficiency in Python, SQL, and various machine learning c
 
 <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
 
-<a href="mailto:shivesh235@example.com" style="display: flex; align-items: center; text-decoration: none;">
+<a href="mailto:your-shivesh235@example.com" style="display: flex; align-items: center; text-decoration: none;">
     <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Email" width="20" style="margin-right: 0.5rem;">shivesh235@gmail.com&nbsp;&nbsp;
     <!-- Email&nbsp;&nbsp&nbsp;&nbsp -->
 </a>
