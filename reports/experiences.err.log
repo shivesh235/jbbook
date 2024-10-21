@@ -1,0 +1,88 @@
+Traceback (most recent call last):
+  File "/home/sie/miniconda3/envs/env1/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/sie/miniconda3/envs/env1/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/sie/miniconda3/envs/env1/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/home/sie/miniconda3/envs/env1/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/sie/miniconda3/envs/env1/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/sie/miniconda3/envs/env1/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/sie/miniconda3/envs/env1/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+Here’s an improved version of your portfolio's introduction, styled to align with professional norms while keeping it concise and visually appealing. The improvements focus on refining language, structuring content more clearly, and enhancing readability.
+
+---
+
+## Welcome
+
+<h1 style="text-align: center;">Shivesh Singh</h1>
+<h2 style="text-align: center;">Machine Learning Researcher</h2>
+
+---
+
+I am a passionate machine learning and data science researcher currently pursuing a Master's in Machine Learning. With a strong foundation in essential tools and concepts, I specialize in generative modeling, classification, time series forecasting, and data preprocessing. My goal is to use data-driven approaches to address real-world challenges, contributing to impactful projects in machine learning and beyond.
+
+### **Core Expertise**
+- Proficient in Python, SQL, TensorFlow, PyTorch, and scikit-learn.
+- Experienced in remote sensing analysis and spatiotemporal data forecasting.
+- Knowledgeable in machine learning frameworks for generative AI, computer vision, and large language models (LLMs).
+
+### **Technical Interests**
+- **Data Science:** Exploring patterns and insights from diverse datasets.
+- **Computer Vision:** Developing models for image classification, object detection, and segmentation.
+- **Large Language Models (LLMs):** Harnessing NLP for conversational AI and automation.
+- **Generative AI:** Working with VAE, GAN, and WGAN-GP models for creative AI tasks.
+- **Remote Sensing:** Analyzing satellite data for environmental and ecological research.
+
+---
+
+<div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+
+<a href="mailto:shivesh235@example.com" style="display: flex; align-items: center; text-decoration: none; margin-right: 10px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Email" width="20" style="margin-right: 0.5rem;">shivesh235@gmail.com
+</a>
+
+<a href="https://www.linkedin.com/in/shivesh235" style="display: flex; align-items: center; text-decoration: none; margin-right: 10px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" width="20" style="margin-right: 0.5rem;">/in/shivesh235
+</a>
+
+<a href="https://github.com/shivesh235" style="display: flex; align-items: center; text-decoration: none;">
+    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github" width="20" style="margin-right: 0.5rem;">shivesh235
+</a>
+
+</div>
+
+---
+
+Feel free to explore my [projects](#), skills, and experiences below.
+
+```{tableofcontents}
+```
+
+---
+
+### **Suggestions for Improvements:**
+
+1. **Clarity and Conciseness:** Refine your personal introduction to make it direct and impactful. Highlight key skills and research areas succinctly.
+2. **Consistency in Design:** Use consistent icon sizes for the contact section (email, LinkedIn, GitHub) to improve visual balance.
+3. **Text Alignment:** Center-align key titles (e.g., your name, role) to make them stand out more prominently.
+4. **Core Expertise Section:** Separate technical skills and experience to emphasize your abilities.
+5. **Use of Professional Language:** The wording is more formal and focused on outcomes, which aligns with professional norms.
+6. **Call-to-Action:** Direct users to explore your projects and experiences with a clear link, making navigation smoother.
+
+This updated structure provides a clean, professional, and visually balanced presentation. You can further customize it by adding links to project sections and embedding interactive notebooks.
+------------------
+
+
+[0;36m  Cell [0;32mIn[1], line 1[0;36m[0m
+[0;31m    Here’s an improved version of your portfolio's introduction, styled to align with professional norms while keeping it concise and visually appealing. The improvements focus on refining language, structuring content more clearly, and enhancing readability.[0m
+[0m        ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid character '’' (U+2019)
+
+
