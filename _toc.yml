@@ -5,4 +5,4 @@ format: jb-book
 root: intro
 chapters:
 - file: experiences
-- file: projects
+- file: genai/Generation_using_VAE's_and_GAN's
