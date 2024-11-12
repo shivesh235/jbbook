@@ -1,0 +1,942 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Database &#8212; Shivesh Singh</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Databases';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Generative Models" href="genai/Generation_using_VAE%27s_and_GAN%27s.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpeg" class="logo__image only-light" alt="Shivesh Singh - Home"/>
+    <script>document.write(`<img src="_static/logo.jpeg" class="logo__image only-dark" alt="Shivesh Singh - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="experiences.html">Education &amp; Experiences</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genai/Generation_using_VAE%27s_and_GAN%27s.html">Generative Models</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Database</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FDatabases.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Databases.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Database</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-using-traditional-programming-languages-for-database-manipulation">Disadvantages of Using Traditional Programming Languages for Database Manipulation:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbms-based-approach">DBMS-Based Approach</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-of-a-dbms-crud-operations">Functions of a DBMS (CRUD Operations)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-model-in-dbms">Relational Model in DBMS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-of-the-relational-model">Uses of the Relational Model:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-commands">SQL Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ddl-data-definition-language">1. <strong>DDL - Data Definition Language</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ddl-commands">DDL Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dql-data-query-language">2. <strong>DQL - Data Query Language</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dql-command">DQL Command</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dml-data-modification-language">3. <strong>DML - Data Modification Language</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dml-commands">DML Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dcl-data-control-language">4. <strong>DCL - Data Control Language</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dcl-commands">DCL Commands</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="database">
+<h1>Database<a class="headerlink" href="#database" title="Link to this heading">#</a></h1>
+<p><strong>What is a Database?</strong></p>
+<ul class="simple">
+<li><p>A database is an organized collection of data that allows users to efficiently store, access, and manipulate information. It includes both the data itself and the methods or processes to access and modify that data.</p></li>
+<li><p>A database system typically includes both <strong>hardware</strong> and <strong>software</strong> components to manage data effectively.</p></li>
+</ul>
+<p><strong>SQL (Structured Query Language)</strong></p>
+<ul class="simple">
+<li><p>SQL is the primary language used to interact with relational databases. It allows users to create, read, update, and delete data through structured queries.</p></li>
+</ul>
+<p><strong>Data Models:</strong>
+Databases can follow different data models, which dictate how data is organized, stored, and retrieved. Some of the primary types include:</p>
+<ol class="arabic simple">
+<li><p><strong>Relational model</strong>: The most common database model, which uses a table-based format to organize data and show relationships between data.</p></li>
+<li><p><strong>Hierarchical model</strong>: A tree-like structure that’s good for simple relationship queries.</p></li>
+<li><p><strong>Network model</strong>: Good for complex relationship queries, and is used for data with many-to-many relationships.</p></li>
+<li><p><strong>Object-oriented model</strong>: Good for complex data structures and queries, and integrates principles from object-oriented programming.</p></li>
+<li><p><strong>Inverted file model</strong>: Uses the contents of data as keys in a lookup table, with values that point to the location of each instance of a content item.</p></li>
+<li><p><strong>NoSQL</strong>: Flexible for unstructured data.</p></li>
+</ol>
+<p><strong>What is a Query?</strong></p>
+<ul class="simple">
+<li><p>A query is an SQL statement used to perform a task within a database, such as retrieving, inserting, updating, or deleting data.</p></li>
+<li><p>Queries can range from simple data retrieval commands to complex transactions involving multiple tables.</p></li>
+</ul>
+<p><strong>Query Breakdown</strong></p>
+<p>SQL queries are composed of several key components:</p>
+<ul class="simple">
+<li><p><strong>Clause</strong>: Part of the SQL syntax that specifies an action, such as <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>, <code class="docutils literal notranslate"><span class="pre">FROM</span></code>, or <code class="docutils literal notranslate"><span class="pre">WHERE</span></code>.</p></li>
+<li><p><strong>Keyword</strong>: Reserved words that form the basis of SQL syntax, like <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>, <code class="docutils literal notranslate"><span class="pre">INSERT</span></code>, <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code>.</p></li>
+<li><p><strong>Identifier</strong>: Names given to database objects, like table names and column names.</p></li>
+<li><p><strong>Condition</strong>: A logical expression that determines which rows are selected or affected.</p></li>
+<li><p><strong>Expression</strong>: A combination of columns, literals, and operators that define the data returned or modified.</p></li>
+</ul>
+<p>Example Query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">CustomerName</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Customers</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">City</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;London&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In this query:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code> and <code class="docutils literal notranslate"><span class="pre">FROM</span></code> are <strong>clauses</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CustomerName</span></code> and <code class="docutils literal notranslate"><span class="pre">Customers</span></code> are <strong>identifiers</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">City</span> <span class="pre">=</span> <span class="pre">'London'</span></code> is a <strong>condition</strong> that filters the data.</p></li>
+</ul>
+<p><strong>Declarative Nature of SQL</strong></p>
+<ul class="simple">
+<li><p>SQL is a <strong>declarative language</strong>, meaning that it specifies <em>what</em> to do (e.g., retrieve data) rather than <em>how</em> to do it. This is different from imperative languages, where the exact steps of execution are defined.</p></li>
+</ul>
+<section id="disadvantages-of-using-traditional-programming-languages-for-database-manipulation">
+<h2>Disadvantages of Using Traditional Programming Languages for Database Manipulation:<a class="headerlink" href="#disadvantages-of-using-traditional-programming-languages-for-database-manipulation" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Complexity</strong>: Programming languages require extensive code to handle data operations, especially for complex queries or data transformations.</p></li>
+<li><p><strong>Performance</strong>: SQL is optimized specifically for database operations, while programming languages may not perform as efficiently.</p></li>
+<li><p><strong>Error-prone</strong>: The detailed and procedural nature of programming languages increases the likelihood of bugs when handling database interactions.</p></li>
+<li><p><strong>Maintenance</strong>: Using traditional code for database manipulation can make maintenance harder, as it typically lacks the readability and straightforward syntax of SQL.</p></li>
+</ol>
+</section>
+<section id="dbms-based-approach">
+<h2>DBMS-Based Approach<a class="headerlink" href="#dbms-based-approach" title="Link to this heading">#</a></h2>
+<p>A <strong>Database Management System (DBMS)</strong> serves as an intermediary between data and the storage medium (hardware) where it is kept. DBMS software allows users to interact with data in a consistent way, regardless of the underlying storage method.</p>
+<p>With DBMS, <strong>SQL (Structured Query Language)</strong> provides a unified language to communicate with the database without needing to know the storage details. This simplifies database operations and enhances data integrity and security.</p>
+<section id="functions-of-a-dbms-crud-operations">
+<h3>Functions of a DBMS (CRUD Operations)<a class="headerlink" href="#functions-of-a-dbms-crud-operations" title="Link to this heading">#</a></h3>
+<p>DBMS software supports four primary operations, commonly referred to as <strong>CRUD</strong>:</p>
+<ul class="simple">
+<li><p><strong>C - Create</strong>: Adding new records to a database.</p></li>
+<li><p><strong>R - Read</strong>: Retrieving data from the database.</p></li>
+<li><p><strong>U - Update</strong>: Modifying existing data in the database.</p></li>
+<li><p><strong>D - Delete</strong>: Removing data from the database.</p></li>
+</ul>
+<p>These operations form the core actions a user can perform, providing a complete set of tools to manage data within the DBMS.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="relational-model-in-dbms">
+<h2>Relational Model in DBMS<a class="headerlink" href="#relational-model-in-dbms" title="Link to this heading">#</a></h2>
+<p>The <strong>Relational Model</strong> is a popular database model where data is organized into tables, making it easier to understand and manipulate relationships between data entities. The key components and terminologies used in this model are:</p>
+<ol class="arabic simple">
+<li><p><strong>Tables</strong>:</p>
+<ul class="simple">
+<li><p>A table is the main structure that organizes data into rows and columns.</p></li>
+<li><p>Each table typically represents a single type of entity (e.g., Customers, Products) and is uniquely named.</p></li>
+</ul>
+</li>
+<li><p><strong>Columns/Attributes</strong>:</p>
+<ul class="simple">
+<li><p>Columns represent the individual pieces of data, or attributes, for each record in the table.</p></li>
+<li><p>For example, in a “Customers” table, columns might include <code class="docutils literal notranslate"><span class="pre">CustomerID</span></code>, <code class="docutils literal notranslate"><span class="pre">CustomerName</span></code>, and <code class="docutils literal notranslate"><span class="pre">City</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Degree</strong>:</p>
+<ul class="simple">
+<li><p>The degree of a table refers to the number of columns it contains.</p></li>
+<li><p>For instance, a table with four columns (<code class="docutils literal notranslate"><span class="pre">CustomerID</span></code>, <code class="docutils literal notranslate"><span class="pre">Name</span></code>, <code class="docutils literal notranslate"><span class="pre">City</span></code>, <code class="docutils literal notranslate"><span class="pre">Email</span></code>) has a degree of 4.</p></li>
+</ul>
+</li>
+<li><p><strong>Domain/Constraint</strong>:</p>
+<ul class="simple">
+<li><p>A domain defines the allowed values for a particular attribute (e.g., a <code class="docutils literal notranslate"><span class="pre">Date</span></code> column only accepts date formats).</p></li>
+<li><p>Constraints are rules enforced on the data to maintain accuracy and integrity. For example, a <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code> constraint ensures a column cannot have empty values.</p></li>
+</ul>
+</li>
+<li><p><strong>Tuples/Rows</strong>:</p>
+<ul class="simple">
+<li><p>A row, or tuple, represents a single record in the table, holding data for each column.</p></li>
+<li><p>For instance, a row in the “Customers” table might represent one customer’s data: (<code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">Alice</span></code>, <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">York</span></code>, <code class="docutils literal notranslate"><span class="pre">alice&#64;example.com</span></code>).</p></li>
+</ul>
+</li>
+<li><p><strong>Cardinality</strong>:</p>
+<ul class="simple">
+<li><p>Cardinality indicates the number of rows in a table.</p></li>
+<li><p>For example, if a “Customers” table has 1,000 rows, its cardinality is 1,000.</p></li>
+</ul>
+</li>
+<li><p><strong>Primary Key</strong>:</p>
+<ul class="simple">
+<li><p>A primary key is a unique identifier for each row in a table. It ensures that no two rows are identical.</p></li>
+<li><p>For example, <code class="docutils literal notranslate"><span class="pre">CustomerID</span></code> could be the primary key in a “Customers” table, as each customer has a unique ID.</p></li>
+</ul>
+</li>
+<li><p><strong>Foreign Key</strong>:</p>
+<ul class="simple">
+<li><p>A foreign key is a field in one table that uniquely identifies a row in another table, creating a link between tables.</p></li>
+<li><p>For instance, if a “Orders” table includes a <code class="docutils literal notranslate"><span class="pre">CustomerID</span></code> field, it can act as a foreign key referencing <code class="docutils literal notranslate"><span class="pre">CustomerID</span></code> in the “Customers” table, establishing a relationship between customers and their orders.</p></li>
+</ul>
+</li>
+</ol>
+<hr class="docutils" />
+<section id="uses-of-the-relational-model">
+<h3>Uses of the Relational Model:<a class="headerlink" href="#uses-of-the-relational-model" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>OLTP (Online Transaction Processing)</strong>:</p>
+<ul class="simple">
+<li><p>OLTP systems focus on managing transaction-oriented applications, typically used for day-to-day operations like customer order processing.</p></li>
+<li><p>These systems prioritize quick and efficient CRUD operations, ensuring data integrity for high volumes of short, transactional queries.</p></li>
+</ul>
+</li>
+<li><p><strong>OLAP (Online Analytical Processing)</strong>:</p>
+<ul class="simple">
+<li><p>OLAP is used for complex data analysis, enabling users to extract insights from large datasets. This is typically used in data warehousing and reporting.</p></li>
+<li><p>OLAP systems are optimized for read-heavy operations, allowing for fast aggregation, filtering, and computation over vast amounts of historical data.</p></li>
+</ul>
+</li>
+</ol>
+<p>Together, these elements and functions make the relational model highly versatile and powerful for managing structured data in various applications, from real-time transaction systems to long-term analytical reporting.</p>
+<p>Login to postgres account:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">-</span><span class="n">u</span> <span class="n">postgres</span> <span class="n">psql</span> <span class="n">postgres</span>
+</pre></div>
+</div>
+<p>Import databases:</p>
+<ol class="arabic simple">
+<li><p>Create a database (let’s  use Valentina DB)</p></li>
+<li></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">psql</span> <span class="o">-</span><span class="n">U</span> <span class="n">postgres</span> <span class="o">-</span><span class="n">h</span> <span class="n">localhost</span> <span class="o">-</span><span class="n">d</span> <span class="n">Employees</span> <span class="o">&lt;</span> <span class="n">employees</span><span class="o">.</span><span class="n">sql</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="sql-commands">
+<h2>SQL Commands<a class="headerlink" href="#sql-commands" title="Link to this heading">#</a></h2>
+<p>SQL commands are categorized into four primary types: DDL, DQL, DML, and DCL. Each type serves specific purposes for defining, querying, modifying, or controlling access to data.</p>
+</section>
+<section id="ddl-data-definition-language">
+<h2>1. <strong>DDL - Data Definition Language</strong><a class="headerlink" href="#ddl-data-definition-language" title="Link to this heading">#</a></h2>
+<p>DDL commands are used to define, alter, and manage the structure of database objects such as tables, indexes, and schemas. These commands often cause changes to be automatically committed to the database.</p>
+<section id="ddl-commands">
+<h3>DDL Commands<a class="headerlink" href="#ddl-commands" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>CREATE</strong></p>
+<ul>
+<li><p>Used to create new tables, indexes, views, and other database objects.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">employee_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="w">    </span><span class="k">position</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+<span class="w">    </span><span class="n">salary</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>ALTER</strong></p>
+<ul>
+<li><p>Modifies the structure of an existing database object, such as adding, dropping, or modifying columns in a table.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">ADD</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>DROP</strong></p>
+<ul>
+<li><p>Deletes an entire database object, such as a table or view. This action is irreversible.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>RENAME</strong></p>
+<ul>
+<li><p>Renames an existing database object, such as a table or column.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">staff</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>TRUNCATE</strong></p>
+<ul>
+<li><p>Removes all rows from a table without logging individual row deletions, thus being faster than <code class="docutils literal notranslate"><span class="pre">DELETE</span></code>.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>COMMIT</strong></p>
+<ul>
+<li><p>Confirms changes made by <code class="docutils literal notranslate"><span class="pre">DDL</span></code> statements and makes them permanent in the database.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">COMMIT</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="dql-data-query-language">
+<h2>2. <strong>DQL - Data Query Language</strong><a class="headerlink" href="#dql-data-query-language" title="Link to this heading">#</a></h2>
+<p>DQL commands are used to query and retrieve data from the database. The primary DQL command is <code class="docutils literal notranslate"><span class="pre">SELECT</span></code>.</p>
+<section id="dql-command">
+<h3>DQL Command<a class="headerlink" href="#dql-command" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>SELECT</strong></p>
+<ul>
+<li><p>Retrieves data from one or more tables or views based on specified criteria.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">position</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50000</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="dml-data-modification-language">
+<h2>3. <strong>DML - Data Modification Language</strong><a class="headerlink" href="#dml-data-modification-language" title="Link to this heading">#</a></h2>
+<p>DML commands are used to manipulate data within tables. These commands allow you to insert, update, delete, and merge data within the database.</p>
+<section id="dml-commands">
+<h3>DML Commands<a class="headerlink" href="#dml-commands" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>INSERT</strong></p>
+<ul>
+<li><p>Adds new rows of data into a table.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">position</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;John Doe&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Manager&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">75000</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>UPDATE</strong></p>
+<ul>
+<li><p>Modifies existing data within a table.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">UPDATE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">80000</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>DELETE</strong></p>
+<ul>
+<li><p>Removes one or more rows from a table based on specified conditions.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DELETE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">employee_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>MERGE</strong></p>
+<ul>
+<li><p>Combines <code class="docutils literal notranslate"><span class="pre">INSERT</span></code> and <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> functionality, performing an update if a condition is met or an insert if not.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">MERGE</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">e</span>
+<span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;John Doe&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">new_data</span>
+<span class="k">ON</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">employee_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_data</span><span class="p">.</span><span class="n">employee_id</span><span class="p">)</span>
+<span class="k">WHEN</span><span class="w"> </span><span class="n">MATCHED</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">    </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new_data</span><span class="p">.</span><span class="n">name</span>
+<span class="k">WHEN</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">MATCHED</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">    </span><span class="k">INSERT</span><span class="w"> </span><span class="p">(</span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">new_data</span><span class="p">.</span><span class="n">employee_id</span><span class="p">,</span><span class="w"> </span><span class="n">new_data</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>CALL</strong></p>
+<ul>
+<li><p>Executes a stored procedure.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CALL</span><span class="w"> </span><span class="n">increase_salaries</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>EXPLAIN PLAN</strong></p>
+<ul>
+<li><p>Shows the execution plan of an SQL query, useful for analyzing performance.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="n">PLAN</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50000</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>LOCK TABLE</strong></p>
+<ul>
+<li><p>Locks a table to control concurrent access by multiple users.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">LOCK</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="k">EXCLUSIVE</span><span class="w"> </span><span class="k">MODE</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="dcl-data-control-language">
+<h2>4. <strong>DCL - Data Control Language</strong><a class="headerlink" href="#dcl-data-control-language" title="Link to this heading">#</a></h2>
+<p>DCL commands are used to control access to data within the database by granting or revoking privileges to/from users or roles.</p>
+<section id="dcl-commands">
+<h3>DCL Commands<a class="headerlink" href="#dcl-commands" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>GRANT</strong></p>
+<ul>
+<li><p>Provides specific privileges to a user or role.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">user_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>REVOKE</strong></p>
+<ul>
+<li><p>Removes specific privileges from a user or role.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">REVOKE</span><span class="w"> </span><span class="k">INSERT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">user_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<hr class="docutils" />
+<p>Each of these SQL command types plays a specific role in managing a database, from defining its structure to controlling access, ensuring that you can create, modify, retrieve, and secure data as needed.</p>
+<p>Some example:</p>
+<p>Change Column Name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">emp_no</span> <span class="n">AS</span> <span class="s2">&quot;Employee No.&quot;</span><span class="p">,</span> <span class="n">birth_date</span> <span class="n">AS</span> <span class="s2">&quot;Bithday&quot;</span> <span class="n">FROM</span> <span class="n">public</span><span class="o">.</span><span class="n">employees</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Column Concatenation:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Note:Single</span> <span class="pre">quotes</span> <span class="pre">for</span> <span class="pre">characters</span> <span class="pre">and</span> <span class="pre">Double</span> <span class="pre">quotes</span> <span class="pre">for</span> <span class="pre">column</span> <span class="pre">names</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="n">emp_no</span><span class="p">,</span> <span class="n">CONCAT</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">last_name</span><span class="p">)</span> <span class="n">AS</span> <span class="s2">&quot;Name&quot;</span> <span class="n">FROM</span> <span class="n">public</span><span class="o">.</span><span class="n">employees</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">CONCAT</span></code> is a <code class="docutils literal notranslate"><span class="pre">scalar</span></code> function which runs through each row takes input and generates some output.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Aggregate</span></code> function produces a summary for complete table.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="genai/Generation_using_VAE%27s_and_GAN%27s.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Generative Models</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-using-traditional-programming-languages-for-database-manipulation">Disadvantages of Using Traditional Programming Languages for Database Manipulation:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbms-based-approach">DBMS-Based Approach</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-of-a-dbms-crud-operations">Functions of a DBMS (CRUD Operations)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relational-model-in-dbms">Relational Model in DBMS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uses-of-the-relational-model">Uses of the Relational Model:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sql-commands">SQL Commands</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ddl-data-definition-language">1. <strong>DDL - Data Definition Language</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ddl-commands">DDL Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dql-data-query-language">2. <strong>DQL - Data Query Language</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dql-command">DQL Command</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dml-data-modification-language">3. <strong>DML - Data Modification Language</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dml-commands">DML Commands</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dcl-data-control-language">4. <strong>DCL - Data Control Language</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dcl-commands">DCL Commands</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shivesh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
