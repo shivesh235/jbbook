@@ -6,3 +6,4 @@ root: intro
 chapters:
 - file: experiences
 - file: genai/Generation_using_VAE's_and_GAN's
+- file: Databases
