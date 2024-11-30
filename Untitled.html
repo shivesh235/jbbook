@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -178,7 +178,6 @@
 <li class="toctree-l1"><a class="reference internal" href="genai/Generation_using_VAE%27s_and_GAN%27s.html">Generative Models</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Databases.html">Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Dashboard.html">Interactive Dashboard Creation with Streamlit</a></li>
 </ul>
 
     </div>
@@ -423,36 +422,40 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: kaggle in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (1.6.17)
 Requirement already satisfied: seaborn in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (0.13.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.10 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from kaggle) (1.16.0)
-Requirement already satisfied: certifi&gt;=2023.7.22 in /home/sie/.local/lib/python3.10/site-packages (from kaggle) (2024.2.2)
-Requirement already satisfied: python-dateutil in /home/sie/.local/lib/python3.10/site-packages (from kaggle) (2.9.0.post0)
-Requirement already satisfied: requests in /home/sie/.local/lib/python3.10/site-packages (from kaggle) (2.31.0)
-Requirement already satisfied: tqdm in /home/sie/.local/lib/python3.10/site-packages (from kaggle) (4.66.2)
+Requirement already satisfied: six&gt;=1.10 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from kaggle) (1.16.0)
+Requirement already satisfied: certifi&gt;=2023.7.22 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from kaggle) (2024.7.4)
+Requirement already satisfied: python-dateutil in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from kaggle) (2.9.0.post0)
+Requirement already satisfied: requests in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from kaggle) (2.32.3)
+Requirement already satisfied: tqdm in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from kaggle) (4.66.5)
 Requirement already satisfied: python-slugify in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from kaggle) (8.0.4)
-Requirement already satisfied: urllib3 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from kaggle) (1.26.19)
+Requirement already satisfied: urllib3 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from kaggle) (2.2.2)
 Requirement already satisfied: bleach in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from kaggle) (4.1.0)
-Requirement already satisfied: numpy!=1.24.0,&gt;=1.20 in /home/sie/.local/lib/python3.10/site-packages (from seaborn) (1.26.4)
-Requirement already satisfied: pandas&gt;=1.2 in /home/sie/.local/lib/python3.10/site-packages (from seaborn) (2.2.2)
-Requirement already satisfied: matplotlib!=3.6.1,&gt;=3.4 in /home/sie/.local/lib/python3.10/site-packages (from seaborn) (3.8.4)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /home/sie/.local/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.2.1)
-Requirement already satisfied: cycler&gt;=0.10 in /home/sie/.local/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (0.12.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /home/sie/.local/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (4.51.0)
-Requirement already satisfied: kiwisolver&gt;=1.3.1 in /home/sie/.local/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.4.5)
-Requirement already satisfied: packaging&gt;=20.0 in /home/sie/.local/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (24.0)
-Requirement already satisfied: pillow&gt;=8 in /home/sie/.local/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (10.3.0)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/sie/.local/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (3.1.2)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2020.1 in /home/sie/.local/lib/python3.10/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2024.1)
-Requirement already satisfied: tzdata&gt;=2022.7 in /home/sie/.local/lib/python3.10/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2024.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy!=1.24.0,&gt;=1.20 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from seaborn) (1.26.4)
+Requirement already satisfied: pandas&gt;=1.2 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from seaborn) (2.2.2)
+Requirement already satisfied: matplotlib!=3.6.1,&gt;=3.4 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from seaborn) (3.8.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: contourpy&gt;=1.0.1 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.2.0)
+Requirement already satisfied: cycler&gt;=0.10 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (0.11.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (4.51.0)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.4.4)
+Requirement already satisfied: packaging&gt;=20.0 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (24.1)
+Requirement already satisfied: pillow&gt;=8 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (10.4.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (3.0.9)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytz&gt;=2020.1 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2024.1)
+Requirement already satisfied: tzdata&gt;=2022.7 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from pandas&gt;=1.2-&gt;seaborn) (2023.3)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: webencodings in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from bleach-&gt;kaggle) (0.5.1)
 Requirement already satisfied: text-unidecode&gt;=1.3 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from python-slugify-&gt;kaggle) (1.3)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/sie/.local/lib/python3.10/site-packages (from requests-&gt;kaggle) (3.3.2)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/sie/.local/lib/python3.10/site-packages (from requests-&gt;kaggle) (3.7)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from requests-&gt;kaggle) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/sie/miniconda3/envs/env1/lib/python3.10/site-packages (from requests-&gt;kaggle) (3.7)
 </pre></div>
 </div>
 </div>

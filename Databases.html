@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Database &#8212; Shivesh Singh</title>
+    <title>Databases + SQL &#8212; Shivesh Singh</title>
   
   
   
@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -60,8 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'Databases';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Interactive Dashboard Creation with Streamlit" href="Dashboard.html" />
-    <link rel="prev" title="Generative Models" href="genai/Generation_using_VAE%27s_and_GAN%27s.html" />
+    <link rel="prev" title="Exploring Generative Models: VAE and GAN Variants" href="genai/Generation_using_VAE%27s_and_GAN%27s.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,10 +174,9 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="experiences.html">Education &amp; Experiences</a></li>
-<li class="toctree-l1"><a class="reference internal" href="genai/Generation_using_VAE%27s_and_GAN%27s.html">Generative Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genai/Generation_using_VAE%27s_and_GAN%27s.html">Exploring Generative Models: VAE and GAN Variants</a></li>
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Dashboard.html">Interactive Dashboard Creation with Streamlit</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Databases + SQL</a></li>
 </ul>
 
     </div>
@@ -364,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Database</h1>
+    <h1>Databases + SQL</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -439,6 +437,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-joins">Summary of Joins</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-data">Grouping Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#window-functions">Window Functions</a></li>
 </ul>
             </nav>
         </div>
@@ -450,8 +450,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="database">
-<h1>Database<a class="headerlink" href="#database" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="databases-sql">
+<h1>Databases + SQL<a class="headerlink" href="#databases-sql" title="Link to this heading">#</a></h1>
+<p>This notebook provides an overview of fundamental database concepts and SQL operations. It covers key topics like database design, normalization, primary and foreign keys, and basic SQL commands such as SELECT, INSERT, UPDATE, DELETE, and JOIN operations. Perfect for beginners looking to build a strong foundation in relational databases and query writing.</p>
+<hr class="docutils" />
 <p><strong>What is a Database?</strong></p>
 <ul class="simple">
 <li><p>A database is an organized collection of data that allows users to efficiently store, access, and manipulate information. It includes both the data itself and the methods or processes to access and modify that data.</p></li>
@@ -1195,6 +1197,88 @@ Databases can follow different data models, which dictate how data is organized,
 <p>Each type of join serves a different purpose and is useful in various data retrieval scenarios based on the relationships between tables.</p>
 </section>
 </section>
+<section id="grouping-data">
+<h2>Grouping Data<a class="headerlink" href="#grouping-data" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code></p>
+<ul class="simple">
+<li><p>Summarizing or aggregating data by groups, to get in-depth information by group</p></li>
+<li><p>When we group our data we apply functions per group, not on the entire data set</p></li>
+<li><p>Must apply an aggregating function to all the columns not selected in group by</p></li>
+<li><p>Uses <code class="docutils literal notranslate"><span class="pre">split-apply-combine</span></code> logic</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">dept_no</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">emp_no</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dept_emp</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">dept_no</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Having</span></code> clause</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">dept_name</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">emp_no</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">e</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">dept_name</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">de</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">de</span><span class="p">.</span><span class="n">emp_no</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">emp_no</span>
+<span class="k">INNER</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">d</span>
+<span class="k">ON</span><span class="w"> </span><span class="n">de</span><span class="p">.</span><span class="n">dept_no</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">dept_no</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">gender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;F&#39;</span><span class="w"> </span><span class="c1">-- applies to each row</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">dept_name</span>
+<span class="k">HAVING</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">emp_no</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">25000</span><span class="w"> </span><span class="c1">-- applies condition on groups not rows</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Combining</span> <span class="pre">the</span> <span class="pre">results</span> <span class="pre">of</span> <span class="pre">multiple</span> <span class="pre">grouping</span></code></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Combining results from multiple selects</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">col2</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">table</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">col1</span>
+
+<span class="k">UNION</span><span class="w"> </span><span class="c1">--or UNION ALL (but it doesn&#39;t remove duplicate records)</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">col2</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">table</span>
+
+<span class="c1">-- OR</span>
+
+<span class="k">SELECT</span><span class="w"> </span><span class="n">col1</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">col2</span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">table</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">    </span><span class="c1">-- to define multiple grouping</span>
+<span class="w">    </span><span class="k">GROUPING</span><span class="w"> </span><span class="k">SETS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="p">(),</span>
+<span class="w">        </span><span class="p">(</span><span class="n">col1</span><span class="p">)</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="c1">-- ROLLUP -&gt; makes all the possible combinations between all the grouping sets</span>
+</pre></div>
+</div>
+</section>
+<section id="window-functions">
+<h2>Window Functions<a class="headerlink" href="#window-functions" title="Link to this heading">#</a></h2>
+<p>Create a new column based on functions performed on a subset or “Window” of the data.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- 1. Window function</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="o">*</span><span class="p">,</span>
+<span class="w">    </span><span class="k">MAX</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">()</span><span class="w"> </span><span class="c1">--add a new column with maximum salary for the window (here all) and apply for each row</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salaries</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="c1">--only limit the output shown</span>
+
+<span class="c1">-- 2. Partitoin by</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="o">*</span><span class="p">,</span>
+<span class="w">    </span><span class="n">d</span><span class="p">.</span><span class="n">dept_name</span><span class="p">,</span>
+<span class="w">    </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">dept_name</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="c1">--gives comparison with avg. salary of respective deparments</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salaries</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">dept_emp</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">emp_no</span><span class="p">)</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">departments</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">dept_no</span><span class="p">)</span>
+
+<span class="c1">-- 3. Order by</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">emp_no</span><span class="p">,</span>
+<span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="p">(</span>
+<span class="w">        </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">emp_no</span><span class="w">  </span><span class="c1">--now it performs cumulative sum by using concepts of framing</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">salaries</span>
+</pre></div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1233,17 +1317,8 @@ Databases can follow different data models, which dictate how data is organized,
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Generative Models</p>
+        <p class="prev-next-title">Exploring Generative Models: VAE and GAN Variants</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="Dashboard.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Interactive Dashboard Creation with Streamlit</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -1326,6 +1401,8 @@ Databases can follow different data models, which dictate how data is organized,
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-joins">Summary of Joins</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-data">Grouping Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#window-functions">Window Functions</a></li>
 </ul>
   </nav></div>
 
