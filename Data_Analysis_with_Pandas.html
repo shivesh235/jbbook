@@ -1,0 +1,1829 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pandas &#8212; Shivesh Singh</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Data_Analysis_with_Pandas';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Databases + SQL" href="Databases.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Shivesh Singh</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="genai/Generation_using_VAE%27s_and_GAN%27s.html">Exploring Generative Models: VAE and GAN Variants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Databases.html">Databases + SQL</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pandas</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/shivesh235/jbbook" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/shivesh235/jbbook/issues/new?title=Issue%20on%20page%20%2FData_Analysis_with_Pandas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Data_Analysis_with_Pandas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pandas</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-datatypes">2 main datatypes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-files">Import files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-data">Describing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-and-selecting-data">Viewing and Selecting data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manupulating-data">Manupulating Data</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas">
+<h1>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
+<p>Pandas is a powerful and widely used open-source Python library for data manipulation and analysis. It provides flexible and efficient data structures, primarily <strong>DataFrames</strong> and <strong>Series</strong>, to handle structured data such as tabular data (similar to spreadsheets or SQL tables) and time series data.</p>
+<p>Key features of Pandas include:</p>
+<ul class="simple">
+<li><p><strong>Data Wrangling:</strong> Tools for cleaning, transforming, and reshaping data.</p></li>
+<li><p><strong>Indexing and Slicing:</strong> Easy access to rows and columns using labels or positions.</p></li>
+<li><p><strong>File I/O:</strong> Importing and exporting data in formats like CSV, Excel, SQL, JSON, and more.</p></li>
+<li><p><strong>Statistical Analysis:</strong> Descriptive statistics, aggregation, and group operations.</p></li>
+<li><p><strong>Handling Missing Data:</strong> Identifying, imputing, or dropping null values.</p></li>
+</ul>
+<p>Pandas is built on <strong>NumPy</strong>, which provides the foundational structures and performance for numerical operations. It’s an essential tool for data scientists and analysts, making complex data manipulation tasks much simpler and faster.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="main-datatypes">
+<h2>2 main datatypes<a class="headerlink" href="#main-datatypes" title="Link to this heading">#</a></h2>
+<p>Pandas provides two core data structures:</p>
+<ol class="arabic simple">
+<li><p><strong>Series</strong>:</p>
+<ul class="simple">
+<li><p>A <strong>one-dimensional labeled array</strong> capable of holding any data type (integers, floats, strings, etc.).</p></li>
+<li><p>It is similar to a Python list or a NumPy array but includes <strong>indexing</strong>, allowing for easy data retrieval and alignment.</p></li>
+</ul>
+</li>
+<li><p><strong>DataFrame</strong>:</p>
+<ul class="simple">
+<li><p>A <strong>two-dimensional labeled tabular structure</strong> with rows and columns, where each column can hold different data types (like a spreadsheet or SQL table).</p></li>
+<li><p>It is made up of multiple <strong>Series</strong> objects.</p></li>
+</ul>
+</li>
+</ol>
+<p>Both structures are versatile and efficient for handling real-world data operations like filtering, aggregation, and transformations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># series = 1 dimensional</span>
+
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;BMW&#39;</span><span class="p">,</span> <span class="s1">&#39;Toyota&#39;</span><span class="p">,</span> <span class="s1">&#39;Honda&#39;</span><span class="p">])</span>
+<span class="n">series</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       BMW
+1    Toyota
+2     Honda
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="s1">&#39;White&#39;</span><span class="p">])</span>
+<span class="n">colors</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      Red
+1     Blue
+2    White
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DataFrame = 2 dimensional, can we made from multiple series</span>
+
+<span class="n">car_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Car make&#39;</span><span class="p">:</span> <span class="n">series</span><span class="p">,</span> <span class="s1">&#39;Color&#39;</span><span class="p">:</span> <span class="n">colors</span><span class="p">})</span>
+<span class="n">car_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Car make</th>
+      <th>Color</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BMW</td>
+      <td>Red</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Honda</td>
+      <td>White</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="import-files">
+<h2>Import files<a class="headerlink" href="#import-files" title="Link to this heading">#</a></h2>
+<p>Pandas provides powerful tools to import and work with various file formats. The most commonly used functions include:</p>
+<ol class="arabic">
+<li><p><strong>CSV Files</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.read_csv(&quot;file.csv&quot;)</span></code>: Reads a CSV file into a DataFrame.</p></li>
+<li><p>Supports options like <code class="docutils literal notranslate"><span class="pre">sep</span></code>, <code class="docutils literal notranslate"><span class="pre">header</span></code>, <code class="docutils literal notranslate"><span class="pre">index_col</span></code>, <code class="docutils literal notranslate"><span class="pre">usecols</span></code>, etc.<br />
+Example:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Excel Files</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.read_excel(&quot;file.xlsx&quot;,</span> <span class="pre">sheet_name=&quot;Sheet1&quot;)</span></code>: Reads Excel files.<br />
+Example:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;data.xlsx&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>JSON Files</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.read_json(&quot;file.json&quot;)</span></code>: Reads JSON data into a DataFrame.<br />
+Example:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;data.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>SQL Databases</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pd.read_sql(query,</span> <span class="pre">connection)</span></code>: Reads data from SQL databases.<br />
+Example:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;database.db&quot;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM table&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Other Formats</strong>:</p>
+<ul class="simple">
+<li><p>Pandas supports additional formats like Parquet (<code class="docutils literal notranslate"><span class="pre">pd.read_parquet</span></code>), HDF5 (<code class="docutils literal notranslate"><span class="pre">pd.read_hdf</span></code>), and more.</p></li>
+</ul>
+</li>
+</ol>
+<p>Each function comes with flexible parameters to handle large datasets, custom delimiters, missing values, and encoding issues.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import data</span>
+
+<span class="n">car_sales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/mrdbourke/zero-to-mastery-ml/master/data/car-sales.csv&quot;</span><span class="p">)</span>
+<span class="n">car_sales</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer (KM)</th>
+      <th>Doors</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043</td>
+      <td>4</td>
+      <td>$4,000.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Honda</td>
+      <td>Red</td>
+      <td>87899</td>
+      <td>4</td>
+      <td>$5,000.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>32549</td>
+      <td>3</td>
+      <td>$7,000.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BMW</td>
+      <td>Black</td>
+      <td>11179</td>
+      <td>5</td>
+      <td>$22,000.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095</td>
+      <td>4</td>
+      <td>$3,500.00</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Toyota</td>
+      <td>Green</td>
+      <td>99213</td>
+      <td>4</td>
+      <td>$4,500.00</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>45698</td>
+      <td>4</td>
+      <td>$7,500.00</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>54738</td>
+      <td>4</td>
+      <td>$7,000.00</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>60000</td>
+      <td>4</td>
+      <td>$6,250.00</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>31600</td>
+      <td>4</td>
+      <td>$9,700.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exporting a dataframe</span>
+<span class="n">car_sales</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;exported_car_sales.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="describing-data">
+<h2>Describing Data<a class="headerlink" href="#describing-data" title="Link to this heading">#</a></h2>
+<p>Pandas DataFrames offer several <strong>attributes</strong> and <strong>methods</strong> to describe and understand the dataset:</p>
+<p><strong>Key Attributes</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.shape</span></code>: Provides the number of rows and columns.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.columns</span></code>: Returns the column names.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.index</span></code>: Returns the row indices.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.dtypes</span></code>: Shows the data type of each column.</p></li>
+</ul>
+<p><strong>Descriptive Methods</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.head(n)</span></code>: Displays the first <code class="docutils literal notranslate"><span class="pre">n</span></code> rows (default is 5).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.tail(n)</span></code>: Displays the last <code class="docutils literal notranslate"><span class="pre">n</span></code> rows (default is 5).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.info()</span></code>: Summarizes the DataFrame, showing column types, non-null counts, and memory usage.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.describe()</span></code>: Provides summary statistics for numeric columns (e.g., mean, median, min, max).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.value_counts()</span></code>: Counts unique values in a Series.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.isna()</span></code> / <code class="docutils literal notranslate"><span class="pre">.isnull()</span></code>: Identifies missing values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.corr()</span></code>: Computes pairwise correlation of numeric columns.</p></li>
+</ul>
+<p>These tools help quickly explore and understand the structure, content, and quality of your dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> <span class="n">car_sales</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Index([&#39;Make&#39;, &#39;Colour&#39;, &#39;Odometer (KM)&#39;, &#39;Doors&#39;, &#39;Price&#39;], dtype=&#39;object&#39;),
+ RangeIndex(start=0, stop=10, step=1))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Make             object
+Colour           object
+Odometer (KM)     int64
+Doors             int64
+Price            object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Odometer (KM)</th>
+      <th>Doors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>10.000000</td>
+      <td>10.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>78601.400000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>61983.471735</td>
+      <td>0.471405</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>11179.000000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>35836.250000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>57369.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>96384.500000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>213095.000000</td>
+      <td>5.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 10 entries, 0 to 9
+Data columns (total 5 columns):
+ #   Column         Non-Null Count  Dtype 
+---  ------         --------------  ----- 
+ 0   Make           10 non-null     object
+ 1   Colour         10 non-null     object
+ 2   Odometer (KM)  10 non-null     int64 
+ 3   Doors          10 non-null     int64 
+ 4   Price          10 non-null     object
+dtypes: int64(2), object(3)
+memory usage: 528.0+ bytes
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can also use various statistical function</span>
+<span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Doors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="viewing-and-selecting-data">
+<h2>Viewing and Selecting data<a class="headerlink" href="#viewing-and-selecting-data" title="Link to this heading">#</a></h2>
+<p>Some common methods for viewing and selecting data in a pandas DataFrame include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame.head(n=5)</span></code> - Displays the first n rows of a DataFrame (e.g. car_sales.head() will show the first 5 rows of the car_sales DataFrame).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame.tail(n=5)</span></code> - Displays the last n rows of a DataFrame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame.loc[]</span></code> - Accesses a group of rows and columns by labels or a boolean array.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame.iloc[]</span></code> - Accesses a group of rows and columns by integer indices (e.g. car_sales.iloc[0] shows all the columns from index 0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame.columns</span></code> - Lists the column labels of the DataFrame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame['A']</span></code> - Selects the column named ‘A’ from the DataFrame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame[DataFrame['A']</span> <span class="pre">&gt;</span> <span class="pre">5]</span></code> - Boolean indexing filters rows based on column values meeting a condition (e.g. all rows from column ‘A’ greater than 5.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame.plot()</span></code> - Creates a line plot of a DataFrame’s columns (e.g. plot Make vs. Odometer (KM) columns with car_sales[[“Make”, “Odometer (KM)”]].plot();).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DataFrame.hist()</span></code> - Generates histograms for columns in a DataFrame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas.crosstab()</span></code> - Computes a cross-tabulation of two or more factors.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer (KM)</th>
+      <th>Doors</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043</td>
+      <td>4</td>
+      <td>$4,000.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Honda</td>
+      <td>Red</td>
+      <td>87899</td>
+      <td>4</td>
+      <td>$5,000.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>32549</td>
+      <td>3</td>
+      <td>$7,000.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BMW</td>
+      <td>Black</td>
+      <td>11179</td>
+      <td>5</td>
+      <td>$22,000.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095</td>
+      <td>4</td>
+      <td>$3,500.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># .loc(refers to index) and .iloc (refers to position)</span>
+
+<span class="n">animals</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;bird&#39;</span><span class="p">,</span> <span class="s1">&#39;panda&#39;</span><span class="p">,</span> <span class="s1">&#39;snake&#39;</span><span class="p">],</span>
+                    <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">animals</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      cat
+3      dog
+9     bird
+8    panda
+3    snake
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3      dog
+3    snake
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;panda&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="p">[</span><span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Make&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Toyota&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer (KM)</th>
+      <th>Doors</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043</td>
+      <td>4</td>
+      <td>$4,000.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>32549</td>
+      <td>3</td>
+      <td>$7,000.00</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Toyota</td>
+      <td>Green</td>
+      <td>99213</td>
+      <td>4</td>
+      <td>$4,500.00</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>60000</td>
+      <td>4</td>
+      <td>$6,250.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="p">[</span><span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Odometer (KM)&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer (KM)</th>
+      <th>Doors</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043</td>
+      <td>4</td>
+      <td>$4,000.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095</td>
+      <td>4</td>
+      <td>$3,500.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compare two columns</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Make&#39;</span><span class="p">],</span> <span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Doors&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Doors</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+    <tr>
+      <th>Make</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>BMW</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Honda</th>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Nissan</th>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Toyota</th>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Groupby</span>
+<span class="n">car_sales</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Make&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Odometer (KM)</th>
+      <th>Doors</th>
+    </tr>
+    <tr>
+      <th>Make</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>BMW</th>
+      <td>11179.000000</td>
+      <td>5.00</td>
+    </tr>
+    <tr>
+      <th>Honda</th>
+      <td>62778.333333</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <th>Nissan</th>
+      <td>122347.500000</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <th>Toyota</th>
+      <td>85451.250000</td>
+      <td>3.75</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Odometer (KM)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="_images/66f7956f75fee2ef81b36633a2ac5fea9880d8e3e7a449adbf61aea5e05a6359.png" src="_images/66f7956f75fee2ef81b36633a2ac5fea9880d8e3e7a449adbf61aea5e05a6359.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Odometer (KM)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="_images/6235e4715ff70d9bf2ac74127601a0369af977cabb8a08fc58085739d99df3f9.png" src="_images/6235e4715ff70d9bf2ac74127601a0369af977cabb8a08fc58085739d99df3f9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     $4,000.00
+1     $5,000.00
+2     $7,000.00
+3    $22,000.00
+4     $3,500.00
+5     $4,500.00
+6     $7,500.00
+7     $7,000.00
+8     $6,250.00
+9     $9,700.00
+Name: Price, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;[\$\,\.]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     4000
+1     5000
+2     7000
+3    22000
+4     3500
+5     4500
+6     7500
+7     7000
+8     6250
+9     9700
+Name: Price, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="_images/0c057bb52138bb29eafe38170ae8897a391837e894c6882b09731e1a2f037865.png" src="_images/0c057bb52138bb29eafe38170ae8897a391837e894c6882b09731e1a2f037865.png" />
+</div>
+</div>
+</section>
+<section id="manupulating-data">
+<h2>Manupulating Data<a class="headerlink" href="#manupulating-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># String manupulation</span>
+<span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Make&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    toyota
+1     honda
+2    toyota
+3       bmw
+4    nissan
+5    toyota
+6     honda
+7     honda
+8    toyota
+9    nissan
+Name: Make, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DataFrame with missing entries</span>
+
+<span class="n">car_sales_missing</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/mrdbourke/zero-to-mastery-ml/master/data/car-sales-missing-data.csv&quot;</span><span class="p">)</span>
+<span class="n">car_sales_missing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer</th>
+      <th>Doors</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043.0</td>
+      <td>4.0</td>
+      <td>$4,000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Honda</td>
+      <td>Red</td>
+      <td>87899.0</td>
+      <td>4.0</td>
+      <td>$5,000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>$7,000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BMW</td>
+      <td>Black</td>
+      <td>11179.0</td>
+      <td>5.0</td>
+      <td>$22,000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095.0</td>
+      <td>4.0</td>
+      <td>$3,500</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Toyota</td>
+      <td>Green</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>$4,500</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Honda</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>$7,500</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>NaN</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>60000.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>NaN</td>
+      <td>White</td>
+      <td>31600.0</td>
+      <td>4.0</td>
+      <td>$9,700</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales_missing</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Make        1
+Colour      1
+Odometer    4
+Doors       1
+Price       2
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales_missing</span><span class="p">[</span><span class="s1">&#39;Odometer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_sales_missing</span><span class="p">[</span><span class="s1">&#39;Odometer&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">car_sales_missing</span><span class="p">[</span><span class="s1">&#39;Odometer&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales_missing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer</th>
+      <th>Doors</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043.000000</td>
+      <td>4.0</td>
+      <td>$4,000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Honda</td>
+      <td>Red</td>
+      <td>87899.000000</td>
+      <td>4.0</td>
+      <td>$5,000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>92302.666667</td>
+      <td>3.0</td>
+      <td>$7,000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BMW</td>
+      <td>Black</td>
+      <td>11179.000000</td>
+      <td>5.0</td>
+      <td>$22,000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095.000000</td>
+      <td>4.0</td>
+      <td>$3,500</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Toyota</td>
+      <td>Green</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>$4,500</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Honda</td>
+      <td>NaN</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>$7,500</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>60000.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>NaN</td>
+      <td>White</td>
+      <td>31600.000000</td>
+      <td>4.0</td>
+      <td>$9,700</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales_missing</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer</th>
+      <th>Doors</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043.000000</td>
+      <td>4.0</td>
+      <td>$4,000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Honda</td>
+      <td>Red</td>
+      <td>87899.000000</td>
+      <td>4.0</td>
+      <td>$5,000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>92302.666667</td>
+      <td>3.0</td>
+      <td>$7,000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BMW</td>
+      <td>Black</td>
+      <td>11179.000000</td>
+      <td>5.0</td>
+      <td>$22,000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095.000000</td>
+      <td>4.0</td>
+      <td>$3,500</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Toyota</td>
+      <td>Green</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>$4,500</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Databases.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Databases + SQL</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#main-datatypes">2 main datatypes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-files">Import files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-data">Describing Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-and-selecting-data">Viewing and Selecting data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manupulating-data">Manupulating Data</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Shivesh
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
