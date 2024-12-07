@@ -6,4 +6,5 @@ root: intro
 chapters:
 - file: genai/Generation_using_VAE's_and_GAN's
 - file: Databases
+- file: Data_Analysis_with_Pandas
 
