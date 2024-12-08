@@ -1709,6 +1709,772 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales_missing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer</th>
+      <th>Doors</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043.000000</td>
+      <td>4.0</td>
+      <td>$4,000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Honda</td>
+      <td>Red</td>
+      <td>87899.000000</td>
+      <td>4.0</td>
+      <td>$5,000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>92302.666667</td>
+      <td>3.0</td>
+      <td>$7,000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BMW</td>
+      <td>Black</td>
+      <td>11179.000000</td>
+      <td>5.0</td>
+      <td>$22,000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095.000000</td>
+      <td>4.0</td>
+      <td>$3,500</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Toyota</td>
+      <td>Green</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>$4,500</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Honda</td>
+      <td>NaN</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>$7,500</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>60000.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>NaN</td>
+      <td>White</td>
+      <td>31600.000000</td>
+      <td>4.0</td>
+      <td>$9,700</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">car_sales_missing</span><span class="p">[</span><span class="s1">&#39;Fuel per 100KM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">car_sales_missing</span><span class="p">))</span>
+<span class="n">car_sales_missing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer</th>
+      <th>Doors</th>
+      <th>Price</th>
+      <th>Fuel per 100KM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043.000000</td>
+      <td>4.0</td>
+      <td>$4,000</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Honda</td>
+      <td>Red</td>
+      <td>87899.000000</td>
+      <td>4.0</td>
+      <td>$5,000</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>92302.666667</td>
+      <td>3.0</td>
+      <td>$7,000</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BMW</td>
+      <td>Black</td>
+      <td>11179.000000</td>
+      <td>5.0</td>
+      <td>$22,000</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095.000000</td>
+      <td>4.0</td>
+      <td>$3,500</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Toyota</td>
+      <td>Green</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>$4,500</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Honda</td>
+      <td>NaN</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>$7,500</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>60000.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>NaN</td>
+      <td>White</td>
+      <td>31600.000000</td>
+      <td>4.0</td>
+      <td>$9,700</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales_missing</span><span class="p">[</span><span class="s1">&#39;Total fuel used (L)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_sales_missing</span><span class="p">[</span><span class="s1">&#39;Odometer&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">100</span> <span class="o">*</span> <span class="n">car_sales_missing</span><span class="p">[</span><span class="s1">&#39;Fuel per 100KM&#39;</span><span class="p">]</span>
+<span class="n">car_sales_missing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer</th>
+      <th>Doors</th>
+      <th>Price</th>
+      <th>Fuel per 100KM</th>
+      <th>Total fuel used (L)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043.000000</td>
+      <td>4.0</td>
+      <td>$4,000</td>
+      <td>7</td>
+      <td>10503.010000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Honda</td>
+      <td>Red</td>
+      <td>87899.000000</td>
+      <td>4.0</td>
+      <td>$5,000</td>
+      <td>10</td>
+      <td>8789.900000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>92302.666667</td>
+      <td>3.0</td>
+      <td>$7,000</td>
+      <td>13</td>
+      <td>11999.346667</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BMW</td>
+      <td>Black</td>
+      <td>11179.000000</td>
+      <td>5.0</td>
+      <td>$22,000</td>
+      <td>4</td>
+      <td>447.160000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095.000000</td>
+      <td>4.0</td>
+      <td>$3,500</td>
+      <td>7</td>
+      <td>14916.650000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Toyota</td>
+      <td>Green</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>$4,500</td>
+      <td>7</td>
+      <td>6461.186667</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Honda</td>
+      <td>NaN</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>$7,500</td>
+      <td>16</td>
+      <td>14768.426667</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>92302.666667</td>
+      <td>4.0</td>
+      <td>NaN</td>
+      <td>17</td>
+      <td>15691.453333</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>60000.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>17</td>
+      <td>10200.000000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>NaN</td>
+      <td>White</td>
+      <td>31600.000000</td>
+      <td>4.0</td>
+      <td>$9,700</td>
+      <td>4</td>
+      <td>1264.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">car_sales_missing</span> <span class="o">=</span> <span class="n">car_sales_missing</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Doors&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">car_sales_missing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer</th>
+      <th>Price</th>
+      <th>Fuel per 100KM</th>
+      <th>Total fuel used (L)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043.000000</td>
+      <td>$4,000</td>
+      <td>7</td>
+      <td>10503.010000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Honda</td>
+      <td>Red</td>
+      <td>87899.000000</td>
+      <td>$5,000</td>
+      <td>10</td>
+      <td>8789.900000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>92302.666667</td>
+      <td>$7,000</td>
+      <td>13</td>
+      <td>11999.346667</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BMW</td>
+      <td>Black</td>
+      <td>11179.000000</td>
+      <td>$22,000</td>
+      <td>4</td>
+      <td>447.160000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095.000000</td>
+      <td>$3,500</td>
+      <td>7</td>
+      <td>14916.650000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Toyota</td>
+      <td>Green</td>
+      <td>92302.666667</td>
+      <td>$4,500</td>
+      <td>7</td>
+      <td>6461.186667</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Honda</td>
+      <td>NaN</td>
+      <td>92302.666667</td>
+      <td>$7,500</td>
+      <td>16</td>
+      <td>14768.426667</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>92302.666667</td>
+      <td>NaN</td>
+      <td>17</td>
+      <td>15691.453333</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>60000.000000</td>
+      <td>NaN</td>
+      <td>17</td>
+      <td>10200.000000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>NaN</td>
+      <td>White</td>
+      <td>31600.000000</td>
+      <td>$9,700</td>
+      <td>4</td>
+      <td>1264.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can sample from our dataframe or shuffle the order using sample method</span>
+<span class="n">car_sales</span> <span class="o">=</span> <span class="n">car_sales</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">car_sales</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">car_sales</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer (KM)</th>
+      <th>Doors</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095</td>
+      <td>4</td>
+      <td>3500</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043</td>
+      <td>4</td>
+      <td>4000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Honda</td>
+      <td>Red</td>
+      <td>87899</td>
+      <td>4</td>
+      <td>5000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>45698</td>
+      <td>4</td>
+      <td>7500</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>60000</td>
+      <td>4</td>
+      <td>6250</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>31600</td>
+      <td>4</td>
+      <td>9700</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>32549</td>
+      <td>3</td>
+      <td>7000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Toyota</td>
+      <td>Green</td>
+      <td>99213</td>
+      <td>4</td>
+      <td>4500</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>54738</td>
+      <td>4</td>
+      <td>7000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>BMW</td>
+      <td>Black</td>
+      <td>11179</td>
+      <td>5</td>
+      <td>22000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can apply custom functions on columns or complete dataframe</span>
+<span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Odometer (miles)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">car_sales</span><span class="p">[</span><span class="s1">&#39;Odometer (KM)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">/</span><span class="mf">1.6</span><span class="p">)</span>
+<span class="n">car_sales</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Make</th>
+      <th>Colour</th>
+      <th>Odometer (KM)</th>
+      <th>Doors</th>
+      <th>Price</th>
+      <th>Odometer (miles)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>213095</td>
+      <td>4</td>
+      <td>3500</td>
+      <td>133184.375</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>150043</td>
+      <td>4</td>
+      <td>4000</td>
+      <td>93776.875</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Honda</td>
+      <td>Red</td>
+      <td>87899</td>
+      <td>4</td>
+      <td>5000</td>
+      <td>54936.875</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>45698</td>
+      <td>4</td>
+      <td>7500</td>
+      <td>28561.250</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Toyota</td>
+      <td>White</td>
+      <td>60000</td>
+      <td>4</td>
+      <td>6250</td>
+      <td>37500.000</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Nissan</td>
+      <td>White</td>
+      <td>31600</td>
+      <td>4</td>
+      <td>9700</td>
+      <td>19750.000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Toyota</td>
+      <td>Blue</td>
+      <td>32549</td>
+      <td>3</td>
+      <td>7000</td>
+      <td>20343.125</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Toyota</td>
+      <td>Green</td>
+      <td>99213</td>
+      <td>4</td>
+      <td>4500</td>
+      <td>62008.125</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Honda</td>
+      <td>Blue</td>
+      <td>54738</td>
+      <td>4</td>
+      <td>7000</td>
+      <td>34211.250</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>BMW</td>
+      <td>Black</td>
+      <td>11179</td>
+      <td>5</td>
+      <td>22000</td>
+      <td>6986.875</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
 </section>
 
